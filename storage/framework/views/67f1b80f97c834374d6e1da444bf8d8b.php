@@ -1,0 +1,132 @@
+<?php if (isset($component)) { $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54 = $attributes; } ?>
+<?php $component = App\View\Components\AppLayout::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('app-layout'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\App\View\Components\AppLayout::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+    
+    <style>
+        @font-face {
+            font-family: 'AmazDooM';
+            src: url('<?php echo e(asset('fonts/AmazDooM.ttf')); ?>') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .font-amazdoom {
+            font-family: 'AmazDooM', sans-serif;
+        }
+    </style>
+
+    
+    <div class="relative h-[700  px] w-full">
+        <img 
+            src="<?php echo e(asset('storage/slider/slider1.jpeg')); ?>" 
+            alt="Hero Background" 
+            class="w-full h-full object-cover"
+        >
+
+        
+        <div class="absolute inset-0 flex items-center justify-center bg-black/60 px-4">
+            <div class="max-w-3xl text-center">
+                <h1 class="font-extrabold mb-6 font-amazdoom" 
+                    style="
+                        font-size: 90px; 
+                        color: #facc15; 
+                        text-shadow: 
+                            3px 3px 0 #000, 
+                           -3px -3px 0 #000, 
+                           -3px 3px 0 #000, 
+                            3px -3px 0 #000, 
+                            0px 3px 0 #000, 
+                            0px -3px 0 #000, 
+                            3px 0px 0 #000, 
+                           -3px 0px 0 #000;">
+                    M O T O P A R T
+                </h1>
+
+                <p class="text-xl font-extrabold mb-8" 
+                   style="
+                       font-family: 'Poppins', sans-serif; 
+                       color: #ffffff; 
+                       text-shadow: 2px 2px 4px #000;">
+                    MotoPart adalah tempat terbaik untuk menemukan kebutuhan suku cadang motor berkualitas, dengan harga terjangkau dan terpercaya.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="produk" class="container mx-auto px-6 py-12">
+        <h2 class="text-2xl font-bold text-black text-center mb-10" style="font-family: 'Poppins', sans-serif;">
+            Produk Terbaru 
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <?php $__empty_1 = true; $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                <div class="border rounded-lg p-4 bg-white shadow hover:shadow-lg transition">
+                    
+                    <?php if(isset($product->images[0]) && $product->images[0]): ?>
+                        <div class="w-full h-48 mb-4 overflow-hidden rounded">
+                            <img 
+                                src="<?php echo e(asset('storage/' . $product->images[0])); ?>" 
+                                alt="<?php echo e($product->name); ?>" 
+                                class="w-full h-full object-cover"
+                            >
+                        </div>
+                    <?php else: ?>
+                        <div class="w-full h-48 bg-gray-200 flex items-center justify-center rounded mb-4">
+                            <span class="text-gray-500">Tidak ada gambar</span>
+                        </div>
+                    <?php endif; ?>
+
+                    
+                    <h2 class="text-lg font-semibold mb-2"><?php echo e($product->name); ?></h2>
+
+                    
+                    <?php if($product->short_description): ?>
+                        <p class="text-sm text-gray-500 mb-2"><?php echo e($product->short_description); ?></p>
+                    <?php endif; ?>
+
+                    
+                    <p class="text-indigo-600 font-bold">
+                        Rp <?php echo e(number_format($product->price, 0, ',', '.')); ?>
+
+                    </p>
+                </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                <p class="text-gray-400 text-center col-span-3">Tidak ada produk untuk ditampilkan.</p>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    
+<div class="my-16"></div>
+
+
+<div class="w-full bg-gray-900 py-12 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-white mb-4" style="font-family: 'Poppins', sans-serif;">
+            Upgrade Motor Impianmu di Sini!
+        </h2>
+        <p class="text-white text-lg md:text-xl leading-relaxed" style="font-family: 'Poppins', sans-serif;">
+            Jelajahi koleksi aksesoris motor terlengkap dari Motopart. Kami menyediakan semua yang kamu butuhkan, mulai dari performa hingga gaya, dengan kualitas terjamin dan harga terbaik. Dapatkan aksesoris yang pas, hanya di sini!
+        </p>
+    </div>
+</div>
+ <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>
+<?php $attributes = $__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
+<?php unset($__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>
+<?php $component = $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
+<?php unset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54); ?>
+<?php endif; ?>
+<?php /**PATH D:\software\MotoPart\resources\views/home.blade.php ENDPATH**/ ?>
